@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -54,9 +54,11 @@
             z-index: 1000;
         }
 
+        /* UPDATED: Much larger logo for desktop visibility */
         .nav-logo img {
-            height: 45px;
+            height: 90px; 
             width: auto;
+            transition: height 0.3s ease;
         }
 
         .nav-links {
@@ -101,7 +103,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 20px 60px;
+            padding: 150px 20px 60px; /* Increased top padding to accommodate larger logo */
             background: linear-gradient(180deg, rgba(11, 14, 20, 0.7) 0%, #0b0e14 100%), 
                         url('images/hero-bg.jpg') center/cover no-repeat;
         }
@@ -131,11 +133,23 @@
             text-transform: uppercase;
             line-height: 1.1;
             letter-spacing: -1px;
-            margin-bottom: 15px;
+            margin-bottom: 5px; /* Reduced to bring name closer */
         }
 
         .hero h1 span {
             color: var(--accent-gold);
+        }
+
+        /* NEW: Styles for your name under the title */
+        .owner-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            opacity: 0.9;
         }
 
         .hero p {
@@ -387,9 +401,13 @@
             transform: scale(1.1);
         }
 
+        /* UPDATED: Mobile Compatibility Refinements */
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .nav-logo img { height: 65px; } /* Scales logo down slightly for mobile */
+            .hero { padding-top: 120px; }
             .hero h1 { font-size: 2.2rem; }
+            .owner-name { font-size: 1.2rem; margin-bottom: 20px; } /* Scales name for mobile */
             .hero-buttons { flex-direction: column; }
         }
     </style>
@@ -419,6 +437,10 @@
         <div class="hero-content">
             <span class="badge">Professional Welding & Fabrication</span>
             <h1>Metal Welding King<br><span>(El Rey del Hierro)</span></h1>
+            
+            <!-- ADDED NAME HERE -->
+            <h3 class="owner-name">Elias Fernandez</h3>
+            
             <p>High-quality custom metal gates, structural welding, and mobile repair services in Hialeah and South Florida.</p>
             <div class="hero-buttons">
                 <a href="tel:7864882569" class="btn-main">Call For Free Quote</a>
@@ -474,7 +496,7 @@
         </div>
     </section>
 
-    <!-- FOOTER (Inspired by MWS Reference Layout) -->
+    <!-- FOOTER -->
     <footer id="contact">
         <div class="footer-grid">
             
@@ -522,7 +544,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Metal Welding King (El Rey del Hierro). All Rights Reserved.</p>
+            <p>&copy; 2026 Metal Welding King LLC. All Rights Reserved.</p>
         </div>
     </footer>
 
