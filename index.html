@@ -7,7 +7,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+    <!-- Added Great Vibes for the cursive signature style -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -38,6 +39,64 @@
             overflow-x: hidden;
         }
 
+        /* --- PAGE LOAD ANIMATION --- */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-nav {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .hero-content > * {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-content .badge { animation-delay: 0.2s; }
+        .hero-content h1 { animation-delay: 0.4s; }
+        .hero-content .owner-name { animation-delay: 0.6s; }
+        .hero-content p { animation-delay: 0.8s; }
+        .hero-content .hero-buttons { animation-delay: 1.0s; }
+
+        .card, .gallery-item {
+            opacity: 0;
+            animation: scaleUp 0.8s ease-out forwards;
+        }
+
+        .grid .card:nth-child(1) { animation-delay: 0.2s; }
+        .grid .card:nth-child(2) { animation-delay: 0.4s; }
+        .grid .card:nth-child(3) { animation-delay: 0.6s; }
+
         /* --- NAVBAR --- */
         nav {
             position: fixed;
@@ -54,7 +113,6 @@
             z-index: 1000;
         }
 
-        /* UPDATED: Much larger logo for desktop visibility */
         .nav-logo img {
             height: 90px; 
             width: auto;
@@ -103,7 +161,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 150px 20px 60px; /* Increased top padding to accommodate larger logo */
+            padding: 150px 20px 60px;
             background: linear-gradient(180deg, rgba(11, 14, 20, 0.7) 0%, #0b0e14 100%), 
                         url('images/hero-bg.jpg') center/cover no-repeat;
         }
@@ -133,22 +191,22 @@
             text-transform: uppercase;
             line-height: 1.1;
             letter-spacing: -1px;
-            margin-bottom: 5px; /* Reduced to bring name closer */
+            margin-bottom: 10px;
         }
 
         .hero h1 span {
             color: var(--accent-gold);
         }
 
+        /* Cursive styling for Elias Fernandez */
         .owner-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-main);
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--accent-gold);
             letter-spacing: 2px;
-            text-transform: uppercase;
             margin-bottom: 25px;
-            opacity: 0.9;
+            text-shadow: 0 0 15px rgba(255, 199, 0, 0.2);
         }
 
         .hero p {
@@ -405,7 +463,7 @@
             .nav-logo img { height: 65px; } 
             .hero { padding-top: 120px; }
             .hero h1 { font-size: 2.2rem; }
-            .owner-name { font-size: 1.2rem; margin-bottom: 20px; } 
+            .owner-name { font-size: 2.4rem; margin-bottom: 20px; } 
             .hero-buttons { flex-direction: column; }
         }
     </style>
@@ -418,7 +476,7 @@
     </a>
 
     <!-- NAVIGATION -->
-    <nav>
+    <nav class="animate-nav">
         <div class="nav-logo">
             <img src="images/logo.png" alt="Metal Welding King Logo">
         </div>
@@ -436,11 +494,11 @@
             <span class="badge">Commercial & Structural Welding</span>
             <h1>Metal Welding King<br><span>(El Rey del Hierro)</span></h1>
             
-            <h3 class="owner-name">Elias Fernandez</h3>
+            <div class="owner-name">Elias Fernandez</div>
             
             <p>Specializing in heavy-duty structural steel, commercial concrete embeds, and industrial metal fabrication in Hialeah and South Florida.</p>
             <div class="hero-buttons">
-                <a href="tel:7864882569" class="btn-main">Call For Free Quote</a>
+                <a href="tel:7864882569" class="btn-main"><i class="fa-solid fa-phone"></i> Contact Us</a>
                 <a href="https://wa.me/17864882569" class="btn-wa" target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
                 </a>
