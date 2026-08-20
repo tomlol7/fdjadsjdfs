@@ -377,21 +377,27 @@
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 250px; /* Fixed row height to allow items to perfectly span multiple rows */
             gap: 15px;
         }
 
-        /* Added video styling alongside img for gallery items */
         .gallery-item img, .gallery-item video {
             width: 100%;
-            height: 250px;
+            height: 100%; /* Adapts perfectly to the grid-auto-rows height */
             object-fit: cover;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             transition: opacity 0.3s;
+            display: block;
         }
 
         .gallery-item img:hover, .gallery-item video:hover {
             opacity: 0.85;
+        }
+
+        /* Custom class to make tall (TikTok/Reel) videos span 2 grid rows */
+        .gallery-item.vertical-media {
+            grid-row: span 2;
         }
 
         /* --- FOOTER --- */
@@ -522,9 +528,12 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .nav-actions { gap: 10px; } /* Ensures icons fit without wrapping */
+            .nav-actions { gap: 10px; } 
             .nav-logo img { height: 65px; } 
-            .hero { padding-top: 120px; }
+            
+            /* FIXED OVERLAP ISSUE: Increased top padding so the nav stops blocking the badge */
+            .hero { padding-top: 180px; }
+            
             .hero h1 { font-size: 2.2rem; }
             .owner-name { font-size: 2.4rem; margin-bottom: 20px; } 
             .hero-buttons { flex-direction: column; }
@@ -547,7 +556,6 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <!-- NEW ACTIONS CONTAINER -->
         <div class="nav-actions">
             <a href="mailto:metalweldingking@gmail.com" class="top-email">
                 <i class="fa-solid fa-envelope"></i> metalweldingking@gmail.com
@@ -562,7 +570,6 @@
     </nav>
 
     <section class="hero">
-        <!-- DARK OVERLAY SO TEXT POPS -->
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
@@ -620,14 +627,13 @@
             <p>Take a look at some of our recent commercial and industrial metalwork projects.</p>
         </div>
         <div class="gallery-grid">
-            <!-- VIDEO RELOCATED TO GALLERY & SET TO AUTOPLAY -->
-            <div class="gallery-item">
+            <!-- ADDED 'vertical-media' CLASS HERE -->
+            <div class="gallery-item vertical-media">
                 <video autoplay loop muted playsinline webkit-playsinline>
                     <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/quicktime">
                     <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/mp4">
                 </video>
             </div>
-            <!-- EXTENSIONS FIXED AND ALL 8 REPO IMAGES ADDED -->
             <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Gallery Work 1"></div>
             <div class="gallery-item"><img src="images/gallery-2.png" alt="Gallery Work 2"></div>
             <div class="gallery-item"><img src="images/gallery-3.png" alt="Gallery Work 3"></div>
