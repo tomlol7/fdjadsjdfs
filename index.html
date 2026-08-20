@@ -187,17 +187,8 @@
             text-align: center;
             padding: 150px 20px 60px;
             overflow: hidden;
+            background: url('images/hero-bg.jpg') center/cover no-repeat;
             background-color: var(--bg-main);
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
         }
 
         .hero-overlay {
@@ -389,7 +380,8 @@
             gap: 15px;
         }
 
-        .gallery-item img {
+        /* Added video styling alongside img for gallery items */
+        .gallery-item img, .gallery-item video {
             width: 100%;
             height: 250px;
             object-fit: cover;
@@ -398,7 +390,7 @@
             transition: opacity 0.3s;
         }
 
-        .gallery-item img:hover {
+        .gallery-item img:hover, .gallery-item video:hover {
             opacity: 0.85;
         }
 
@@ -570,12 +562,6 @@
     </nav>
 
     <section class="hero">
-        <!-- BACKGROUND VIDEO FIXED for iOS Safari autoplay + TikTok Format -->
-        <video autoplay loop muted playsinline webkit-playsinline class="hero-video">
-            <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/quicktime">
-            <!-- MP4 Fallback type for better browser support with .mov containers -->
-            <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/mp4"> 
-        </video>
         <!-- DARK OVERLAY SO TEXT POPS -->
         <div class="hero-overlay"></div>
 
@@ -634,6 +620,13 @@
             <p>Take a look at some of our recent commercial and industrial metalwork projects.</p>
         </div>
         <div class="gallery-grid">
+            <!-- VIDEO RELOCATED TO GALLERY & SET TO AUTOPLAY -->
+            <div class="gallery-item">
+                <video autoplay loop muted playsinline webkit-playsinline>
+                    <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/quicktime">
+                    <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/mp4">
+                </video>
+            </div>
             <!-- EXTENSIONS FIXED AND ALL 8 REPO IMAGES ADDED -->
             <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Gallery Work 1"></div>
             <div class="gallery-item"><img src="images/gallery-2.png" alt="Gallery Work 2"></div>
