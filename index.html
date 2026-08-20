@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         :root {
             --bg-main: #0b0e14;
@@ -39,7 +39,6 @@
         /* --- IMAGE STYLING --- */
         img {
             color: transparent;
-            /* background-color removed to fix the logo transparency issue */
         }
 
         /* --- PAGE LOAD ANIMATION --- */
@@ -72,6 +71,7 @@
         .hero-content .owner-name { animation-delay: 0.6s; }
         .hero-content p { animation-delay: 0.8s; }
         .hero-content .hero-buttons { animation-delay: 1.0s; }
+        .hero-content .hero-email-link { animation-delay: 1.2s; }
 
         .card, .gallery-item {
             opacity: 0;
@@ -192,13 +192,10 @@
 
         .hero-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             z-index: 0;
         }
@@ -268,6 +265,20 @@
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
+        }
+        
+        .hero-email-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .hero-email-link:hover {
+            color: var(--accent-gold);
         }
 
         .btn-main {
@@ -519,7 +530,7 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .nav-actions .nav-socials { display: none; }
+            .nav-actions { gap: 10px; } /* Ensures icons fit without wrapping */
             .nav-logo img { height: 65px; } 
             .hero { padding-top: 120px; }
             .hero h1 { font-size: 2.2rem; }
@@ -543,7 +554,7 @@
             <li><a href="#gallery">Our Work</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        
+
         <!-- NEW ACTIONS CONTAINER -->
         <div class="nav-actions">
             <a href="mailto:metalweldingking@gmail.com" class="top-email">
@@ -559,8 +570,8 @@
     </nav>
 
     <section class="hero">
-        <!-- BACKGROUND VIDEO FIXED -->
-        <video autoplay loop muted playsinline class="hero-video">
+        <!-- BACKGROUND VIDEO FIXED for iOS Safari autoplay + TikTok Format -->
+        <video autoplay loop muted playsinline webkit-playsinline class="hero-video">
             <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/quicktime">
             <!-- MP4 Fallback type for better browser support with .mov containers -->
             <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/mp4"> 
@@ -571,9 +582,9 @@
         <div class="hero-content">
             <span class="badge">Commercial & Structural Welding</span>
             <h1>Metal Welding King<br><span>(El Rey del Hierro)</span></h1>
-            
+
             <div class="owner-name">Elias Fernandez</div>
-            
+
             <p>Specializing in heavy-duty structural steel, commercial concrete embeds, and industrial metal fabrication in Hialeah and South Florida.</p>
             <div class="hero-buttons">
                 <a href="tel:7864882569" class="btn-main"><i class="fa-solid fa-phone"></i> Contact Us</a>
@@ -581,6 +592,9 @@
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
                 </a>
             </div>
+            <a href="mailto:metalweldingking@gmail.com" class="hero-email-link">
+                <i class="fa-solid fa-envelope"></i> metalweldingking@gmail.com
+            </a>
         </div>
     </section>
 
@@ -634,7 +648,7 @@
 
     <footer id="contact">
         <div class="footer-grid">
-            
+
             <div class="footer-col">
                 <h4>About Metal Welding King</h4>
                 <p>Elías Fernández specializes in heavy-duty structural steel fabrication, commercial concrete embeds, and industrial metalwork for high-level construction projects across South Florida.</p>
