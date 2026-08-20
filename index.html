@@ -36,10 +36,10 @@
             overflow-x: hidden;
         }
 
-        /* --- PLACEHOLDER IMAGE STYLING --- */
+        /* --- IMAGE STYLING --- */
         img {
             color: transparent;
-            background-color: rgba(255, 255, 255, 0.03); 
+            /* background-color removed to fix the logo transparency issue */
         }
 
         /* --- PAGE LOAD ANIMATION --- */
@@ -186,8 +186,8 @@
             justify-content: center;
             text-align: center;
             padding: 150px 20px 60px;
-            overflow: hidden; /* Keeps the video from stretching the page */
-            background-color: var(--bg-main); /* Fallback color before video loads */
+            overflow: hidden;
+            background-color: var(--bg-main);
         }
 
         .hero-video {
@@ -199,7 +199,7 @@
             width: auto;
             height: auto;
             transform: translate(-50%, -50%);
-            object-fit: cover; /* Makes sure the video covers the entire area without looking squished */
+            object-fit: cover;
             z-index: 0;
         }
 
@@ -209,13 +209,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(11, 14, 20, 0.75); /* Darkens the video so the white text is readable */
+            background: rgba(11, 14, 20, 0.75);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2; /* Brings the text to the front */
+            z-index: 2;
             max-width: 900px;
         }
 
@@ -514,12 +514,12 @@
 
         /* --- RESPONSIVE ADJUSTMENTS --- */
         @media (max-width: 1024px) {
-            .nav-actions .top-email { display: none; } /* Hides email text on tablets to save space */
+            .nav-actions .top-email { display: none; }
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .nav-actions .nav-socials { display: none; } /* Keeps mobile nav clean */
+            .nav-actions .nav-socials { display: none; }
             .nav-logo img { height: 65px; } 
             .hero { padding-top: 120px; }
             .hero h1 { font-size: 2.2rem; }
@@ -559,9 +559,11 @@
     </nav>
 
     <section class="hero">
-        <!-- BACKGROUND VIDEO -->
+        <!-- BACKGROUND VIDEO FIXED -->
         <video autoplay loop muted playsinline class="hero-video">
-            <source src="images/your-video.mov" type="video/mov">
+            <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/quicktime">
+            <!-- MP4 Fallback type for better browser support with .mov containers -->
+            <source src="images/copy_F4786BF4-68A1-4BC1-8447-7EF48740859F.mov" type="video/mp4"> 
         </video>
         <!-- DARK OVERLAY SO TEXT POPS -->
         <div class="hero-overlay"></div>
@@ -618,11 +620,15 @@
             <p>Take a look at some of our recent commercial and industrial metalwork projects.</p>
         </div>
         <div class="gallery-grid">
-            <!-- Updated to show a mix of JPG and PNG files functioning perfectly side-by-side -->
+            <!-- EXTENSIONS FIXED AND ALL 8 REPO IMAGES ADDED -->
             <div class="gallery-item"><img src="images/gallery-1.jpg" alt="Gallery Work 1"></div>
             <div class="gallery-item"><img src="images/gallery-2.png" alt="Gallery Work 2"></div>
-            <div class="gallery-item"><img src="images/gallery-3.jpg" alt="Gallery Work 3"></div>
+            <div class="gallery-item"><img src="images/gallery-3.png" alt="Gallery Work 3"></div>
             <div class="gallery-item"><img src="images/gallery-4.png" alt="Gallery Work 4"></div>
+            <div class="gallery-item"><img src="images/gallery-5.png" alt="Gallery Work 5"></div>
+            <div class="gallery-item"><img src="images/gallery-6.png" alt="Gallery Work 6"></div>
+            <div class="gallery-item"><img src="images/gallery-7.png" alt="Gallery Work 7"></div>
+            <div class="gallery-item"><img src="images/gallery-8.png" alt="Gallery Work 8"></div>
         </div>
     </section>
 
@@ -654,7 +660,6 @@
                 <h4>Let's Be Social</h4>
                 <p>Check out our latest projects and video showcases on TikTok and Instagram!</p>
                 <div class="social-icons">
-                    <!-- Added email and Instagram to the footer line-up -->
                     <a href="mailto:metalweldingking@gmail.com" class="social-btn" title="Email">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
