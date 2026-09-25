@@ -401,11 +401,13 @@
         }
 
         /* --- VIDEO TEMPLATE AT TOP OF GALLERY --- */
+        /* --- TIKTOK / REELS VERTICAL VIDEO --- */
         .gallery-item.video-template {
             grid-column: 1 / -1;
-            grid-row: span 2;
-            height: 500px;
-            min-height: 260px;
+            grid-row: auto;
+            width: min(100%, 420px);
+            aspect-ratio: 9 / 16;
+            margin: 0 auto;
             background: #06080c;
             border-radius: 8px;
             overflow: hidden;
@@ -422,9 +424,7 @@
 
         @media (max-width: 768px) {
             .gallery-item.video-template {
-                grid-row: span 2;
-                height: 56.25vw;
-                min-height: 210px;
+                width: min(100%, 360px);
             }
         }
 
