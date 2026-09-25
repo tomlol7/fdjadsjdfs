@@ -403,7 +403,8 @@
         /* --- VIDEO TEMPLATE AT TOP OF GALLERY --- */
         .gallery-item.video-template {
             grid-column: 1 / -1;
-            height: min(520px, 60vw);
+            grid-row: span 2;
+            height: 500px;
             min-height: 260px;
             background: #06080c;
             border-radius: 8px;
@@ -421,6 +422,7 @@
 
         @media (max-width: 768px) {
             .gallery-item.video-template {
+                grid-row: span 2;
                 height: 56.25vw;
                 min-height: 210px;
             }
@@ -654,7 +656,7 @@
         </div>
         <div class="gallery-grid">
             
-            <!-- VIDEO TEMPLATE: replace videos/example-video.mp4 with your video file -->
+            <!-- VIDEO TEMPLATE: replace images/example-video.mp4 with your video file -->
             <div class="gallery-item video-template">
                 <video controls playsinline preload="metadata">
                     <source src="images/example-video.mp4" type="video/mp4">
