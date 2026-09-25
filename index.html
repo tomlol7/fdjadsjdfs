@@ -400,6 +400,32 @@
             grid-row: span 2;
         }
 
+        /* --- VIDEO TEMPLATE AT TOP OF GALLERY --- */
+        .gallery-item.video-template {
+            grid-column: 1 / -1;
+            height: min(520px, 60vw);
+            min-height: 260px;
+            background: #06080c;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item.video-template video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #000;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item.video-template {
+                height: 56.25vw;
+                min-height: 210px;
+            }
+        }
+
         /* --- FOOTER --- */
         footer {
             background-color: #06080c;
@@ -628,6 +654,14 @@
         </div>
         <div class="gallery-grid">
             
+            <!-- VIDEO TEMPLATE: replace videos/example-video.mp4 with your video file -->
+            <div class="gallery-item video-template">
+                <video controls playsinline preload="metadata">
+                    <source src="videos/example-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
             <div class="gallery-item"><img src="images/gallery-1.jpg" onerror="this.onerror=null; this.src='images/gallery-1.png';" alt="Gallery Work 1"></div>
             <div class="gallery-item"><img src="images/gallery-2.jpg" onerror="this.onerror=null; this.src='images/gallery-2.png';" alt="Gallery Work 2"></div>
             <div class="gallery-item"><img src="images/gallery-3.jpg" onerror="this.onerror=null; this.src='images/gallery-3.png';" alt="Gallery Work 3"></div>
